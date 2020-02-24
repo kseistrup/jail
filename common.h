@@ -32,11 +32,8 @@ static struct option par[] = { {"file", 1, 0, 0},
 short int resolve_names = 1;
 
 /* Functions defined in common.c */
-
-extern int background(void);
 extern int excepted(unsigned long int addr, char *str);
 extern char *gethost(unsigned long int addr);
 extern char *getip(unsigned long int addr);
 extern short int loglevel(char *str);
 extern short int facility(char *str);
-extern void drop_privs(const char *);
