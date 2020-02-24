@@ -1,0 +1,11 @@
+TODO
+----
+
+Ideas for the 2.0 release:
+
+1. Better packet analysis for icmplog.
+2. Reconfigure on SIGHUP.
+3. Better documentation?
+
+Abhijit Menon-Sen <ams@wiw.org>
+$Id: TODO,v 1.7 2001/02/19 10:06:17 ams Exp $

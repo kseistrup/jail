@@ -1,0 +1,55 @@
+README for jail
+---------------
+
+jail  (Just  Another IP Logger) consists of two small programs (icmplog and
+tcplog) which run in the background, logging the reception of ICMP and  TCP
+packets  to  the  system  log. The level  at  which any packet is logged is
+completely configurable. This is a useful network monitoring tool, and  can
+help to  detect attempted denials of service.
+
+icmplog  and  tcplog  can either ignore any packet, or log it at any of the
+syslog levels (as defined in <syslog.h>). The  log  level  is  configurable
+depending  on  the ICMP type (icmplog) or the port on which a connection is
+requested (tcplog). The default facility (LOG_DAEMON) for logging  messages
+can also be changed in the configurations files.
+
+The  level  at  which  a given type of packet is logged is specified in the
+configuration files (/etc/icmplog.conf  and  /etc/tcplog.conf  by  default,
+which  can be overriden with the  --file  option).  You  can  also  specify
+a default level, which matches packets that have an unknown or unconfigured
+type.  See  the  example  configurations included  and  the  icmplog(8) and
+tcplog(8) manual pages for more information.
+
+Log entries contain the source and type (icmplog) or destination port
+(tcplog) of the received packet. If a packet is of an unknown type, its
+numeric  value  is  logged  instead  of its name. The source is logged
+either as a hostname or as an IP address (see the -n option). Typical
+entries look like:
+
+Jun 16 17:47:30 lustre icmplog: started
+Jun 16 17:47:31 lustre tcplog: started
+Jun 16 18:54:14 lustre icmplog: time exceeded from sunsite.unc.edu
+Jun 16 18:56:14 lustre tcplog: port 1039 request from ftp.cs.umn.edu
+Jun 16 19:47:24 lustre icmplog: destination unreachable from 209.39.121.4
+
+The  INSTALL  file  contains  detailed  installation instructions. Read the
+icmplog(8), icmplog.conf(5), tcplog(8) and tcplog.conf(5) manual pages, and
+the   example    configuration    files  (icmplog.conf and tcplog.conf) for
+more information on setting up and using jail.
+
+jail   was   originally  based  on the iplogger package, but offers greater
+configurability and better options.  It  bears  very  little resemblance to
+the original program now.
+
+jail is distributed under the Artistic License (a copy of which is included
+in the distribution) and comes with no warranty, express or implied. If  it
+breaks...well, keep the pieces.
+
+See the file CREDITS for acknowledgments.
+
+You may also want to have a look at iplogger and icmpinfo at:
+http://sunsite.unc.edu/pub/Linux/system/network/daemons/iplogger.tar.gz
+http://sunsite.unc.edu/pub/Linux/system/network/admin/icmpinfo-1.11.tar.gz
+
+Abhijit Menon-Sen <ams@wiw.org>
+$Id: README,v 1.7 2001/02/19 10:06:17 ams Exp $

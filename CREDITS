@@ -1,0 +1,37 @@
+Acknowledgements
+----------------
+
+I would like to thank all the people who have helped me with bug-reports,
+suggestions, and patches during the development of this program. If I have
+neglected to mention your contribution here, please drop me a line and I'll
+correct this oversight.
+
+In alphabetical order:
+
+- Alexey Kuznetsov and Andi Kleen contributed ICMP_FILTER code for 2.1.x
+  kernels.
+- Arnt Gulbrandsen suggested the magic tree which made tcplog possible, and
+  helped in numerous other ways.
+- Bret Martin helped with the initial configuration code.
+- David Rocher sent me patches to support glibc 2.
+- Horst Knobloch sent me patches to support installation to nonstandard
+  locations.
+- Jay Kominek maintains the Debian package of jail.
+- Jeffrey Sean Connell pointed out that i was doing malloc(strlen(name))
+  (instead of malloc(strlen(name+1)) - I have no idea how this escaped
+  for so long.
+- John Hudson named this package jail, made me implement host exclusion,
+  and whines a lot.
+- Lars Kellogg-Stedman sent me signal handling patches which will
+  eventually be integrated into jail.
+- The Linux netdev mailing list offered some valuable help (Alan Cox,
+  Alexey Kuznetsov and Andi Kleen in particular).
+- Nicolai Langfeldt convinced me that I am not in Kansas, and pointed me to
+  the NFR (Network Flight Recorder).
+- unSlider helped with testing and gave me lots of ideas.
+
+I would also like to thank the author of iplogger, whose program I initially
+got the idea and some code for jail from.
+
+Abhijit Menon-Sen <ams@wiw.org>
+$Id: CREDITS,v 1.7 2001/02/19 10:06:17 ams Exp $

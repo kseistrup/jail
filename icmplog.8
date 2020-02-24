@@ -1,0 +1,53 @@
+.TH icmplog 8 "JUN 1998" Linux "System Manuals"
+.SH NAME
+icmplog \- ICMP packet logger.
+
+.SH SYNOPSIS
+.B icmplog
+[-f, --file
+.I filename
+] [-n, --no-resolve] [-v, --version]
+
+.SH DESCRIPTION
+
+.B icmplog
+, a ICMP packet logger, is a part of the
+.B jail
+(just another ip logger) package.
+
+icmplog is a small (daemon) process which logs all ICMP packets to the
+local host. The syslog level at which a given packet is logged is
+configurable depending on the ICMP type of the message. Packets from
+specific hosts can be ignored, and a default log level can be specified.
+
+icmplog can be useful in detecting attempted denials of service, and
+monitoring network traffic, especially when used in conjunction with
+.B tcplog(8).
+
+The configuration is explained in the
+.B icmplog.conf(5)
+manual page.
+
+.SH OPTIONS
+.IP "-f, --file [ filename ]"
+Use
+.I filename
+as the configuration file instead of the default
+.I (/etc/icmplog.conf).
+.IP "-n, --no-resolve"
+Do not resolve IP addresses to hostnames.
+.IP "-v, --version"
+Display
+.B icmplog(8)
+version.
+
+.SH "SEE ALSO"
+.B icmplog.conf(5), tcplog(8), tcplog.conf(5), syslogd(8)
+
+.SH DISTRIBUTION
+jail is distributed under the Artistic License.
+
+.SH AUTHOR
+Abhijit Menon-Sen <ams@wiw.org>
+
+$Id: icmplog.8,v 1.7 2001/02/19 10:06:17 ams Exp $

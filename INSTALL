@@ -1,0 +1,31 @@
+Installation instructions
+-------------------------
+
+The latest version of jail is available from:
+<http://www.wiw.org/~ams/jail/>, or from
+<http://sunsite.unc.edu/pub/Linux/system/network/daemons/>.
+
+To compile and install jail:
+
+$ gzip -dc jail-<version>.tar.gz | tar xf -
+$ su root
+# make install
+
+By default, binaries are installed into /usr/sbin, and the configuration
+files are installed in /etc.
+
+You can also do:
+
+# make DESTDIR=/usr/local CONFDIR=/usr/local/etc install
+
+to install to a nonstandard location. 
+
+icmplog  and  tcplog are typically started at bootup from the init scripts,
+for example the rc.local file. The tcplog(8) and  icmplog(8)  manual  pages
+describe  the  relevant  options,  and  the  configuration file formats are
+detailed in tcplog.conf(5) and icmplog.conf(5).
+
+Read the README file for more information.
+
+Abhijit Menon-Sen <ams@wiw.org>
+$Id: INSTALL,v 1.7 2001/02/19 10:06:17 ams Exp $
