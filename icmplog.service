@@ -1,0 +1,38 @@
+[Unit]
+Description=ICMP logger
+After=network.target
+
+[Service]
+DynamicUser=true
+CapabilityBoundingSet=CAP_NET_RAW CAP_SYSLOG
+AmbientCapabilities=CAP_NET_RAW CAP_SYSLOG
+NoNewPrivileges=yes
+
+DevicePolicy=closed
+IPAddressAllow=0.0.0.0/0
+IPAddressDeny=::/0
+LockPersonality=true
+LogsDirectory=icmplog
+MemoryDenyWriteExecute=yes
+PrivateDevices=true
+PrivateTmp=true
+ProtectControlGroups=yes
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+RestrictNamespaces=yes
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RuntimeDirectory=icmplog
+StateDirectory=icmplog
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+
+UMask=077
+
+ExecStart=/usr/local/sbin/icmplog
+
+[Install]
+WantedBy=multi-user.target

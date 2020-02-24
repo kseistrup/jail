@@ -1,0 +1,39 @@
+[Unit]
+Description=TCP logger
+After=network.target
+
+[Service]
+DynamicUser=true
+CapabilityBoundingSet=CAP_NET_RAW CAP_SYSLOG
+AmbientCapabilities=CAP_NET_RAW CAP_SYSLOG
+NoNewPrivileges=yes
+
+DevicePolicy=closed
+IPAddressAllow=0.0.0.0/0
+IPAddressDeny=::/0
+LockPersonality=true
+MemoryDenyWriteExecute=yes
+PrivateDevices=true
+PrivateTmp=true
+ProtectControlGroups=yes
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+RestrictNamespaces=yes
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+
+LogsDirectory=tcplog
+RuntimeDirectory=tcplog
+StateDirectory=tcplog
+
+UMask=077
+
+ExecStart=/usr/local/sbin/tcplog
+
+[Install]
+WantedBy=multi-user.target
