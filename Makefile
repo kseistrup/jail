@@ -1,17 +1,18 @@
-# $Id: Makefile,v 1.7 2001/02/19 10:06:17 ams Exp $
+# Copyright 2008-2020 Klaus Alexander Seistrup <klaus@seistrup.dk>
 # Copyright 1998-2001 Abhijit Menon-Sen <ams@wiw.org>
 #
 
-CC      = gcc
-CFLAGS  = -Wall -O2
-VERSION = 1.7
+CC      = musl-gcc
+#CC      = gcc
+CFLAGS  = -Wall -s -march=native -mtune=native -O2 -pipe -fstack-protector-strong
+VERSION = 1.8
 INSTALL = /usr/bin/install
 STRIP   = /usr/bin/strip
-DESTDIR = /usr
+DESTDIR = /usr/local
 CONF    = $(CONFDIR)/etc
 SBIN    = $(DESTDIR)/sbin
-MANDIR  = $(DESTDIR)/man
-DOCS    = README CREDITS TODO License INSTALL jail.lsm
+MANDIR  = $(DESTDIR)/share/man
+DOCS    = README CREDITS TODO License INSTALL
 MAN8    = icmplog.8 tcplog.8
 MAN5    = icmplog.conf.5 tcplog.conf.5
 SCONF   = icmplog.conf tcplog.conf
@@ -30,7 +31,7 @@ common.o: $(COMMON)
 	$(CC) $(CFLAGS) -c -o common.o common.c
 
 %: %.c %.h common.o
-	$(CC) $(CFLAGS) $(CONFSTR) $(VERSTR) -o $@ $< common.o
+	$(CC) $(CFLAGS) $(LDFLAGS) $(CONFSTR) $(VERSTR) -o $@ $< common.o
 
 install: $(BIN) $(MAN) $(SCONF)
 	$(INSTALL) -s $(BIN) $(SBIN)
