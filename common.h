@@ -22,11 +22,11 @@
 #define MTU 4352
 
 /* Command line parameters */
-static struct option par[]={ {"file", 1, 0, 0},
-                             {"no-resolve", 0, 0, 0},
-                             {"version", 0, 0, 0},
-                             {0, 0, 0, 0}
-                           };
+static struct option par[] = { {"file", 1, 0, 0},
+{"no-resolve", 0, 0, 0},
+{"version", 0, 0, 0},
+{0, 0, 0, 0}
+};
 
 /* Convert IP addresses to hostnames? */
 short int resolve_names = 1;
@@ -36,5 +36,7 @@ short int resolve_names = 1;
 extern int background(void);
 extern int excepted(unsigned long int addr, char *str);
 extern char *gethost(unsigned long int addr);
+extern char *getip(unsigned long int addr);
 extern short int loglevel(char *str);
 extern short int facility(char *str);
+extern void drop_privs(const char *);

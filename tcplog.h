@@ -10,6 +10,7 @@
 #else
 #include <linux/tcp.h>
 #endif
+#include <linux/tcp.h>
 
 char *version = "tcplog " VERSION ", ams@wiw.org";
 char *cfgfile = TCPLOG_CONF;
@@ -21,7 +22,8 @@ short int lvl = LOG_WARNING;
 short int fac = LOG_DAEMON;
 
 /* TCP packet */
-typedef struct {
+typedef struct
+{
     struct iphdr ip;
     struct tcphdr tcp;
     char data[0];

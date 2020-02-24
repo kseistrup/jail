@@ -8,7 +8,8 @@
 #define IGNORE 0
 
 /* Linked list of hosts to ignore */
-struct ex {
+struct ex
+{
     char *host;
     struct ex *link;
 } root;
