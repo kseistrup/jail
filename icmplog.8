@@ -4,9 +4,9 @@ icmplog \- ICMP packet logger.
 
 .SH SYNOPSIS
 .B icmplog
-[-f, --file
+[\-f, \-\-file
 .I filename
-] [-n, --no-resolve] [-v, --version]
+] [\-n, \-\-no-resolve] [\-v, \-\-version]
 
 .SH DESCRIPTION
 
@@ -29,14 +29,14 @@ The configuration is explained in the
 manual page.
 
 .SH OPTIONS
-.IP "-f, --file [ filename ]"
+.IP "\-f, \-\-file [ filename ]"
 Use
 .I filename
 as the configuration file instead of the default
 .I (/etc/icmplog.conf).
-.IP "-n, --no-resolve"
+.IP "\-n, \-\-no\-resolve"
 Do not resolve IP addresses to hostnames.
-.IP "-v, --version"
+.IP "\-v, \-\-version"
 Display
 .B icmplog(8)
 version.
@@ -48,6 +48,6 @@ version.
 jail is distributed under the Artistic License.
 
 .SH AUTHOR
-Abhijit Menon-Sen <ams@wiw.org>
+Abhijit Menon\-Sen <ams@wiw.org>
 
 $Id: icmplog.8,v 1.7 2001/02/19 10:06:17 ams Exp $
