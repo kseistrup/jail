@@ -191,7 +191,7 @@ main(int argc, char *argv[])
 	    }
       }
 
-    /* need root to bind raw socket */
+    /* we no longer need root to bind raw socket */
     if (geteuid() == 0)
       {
 	  fprintf(stderr,
@@ -202,8 +202,6 @@ main(int argc, char *argv[])
 
     /* parse configuration */
     configure(rc);
-
-    //background();
 
     if ((s = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP)) < 0)
       {
@@ -222,7 +220,6 @@ main(int argc, char *argv[])
 
     openlog("icmplog", 0, fac);
     syslog(LOG_INFO, "started");
-    //drop_privs ("nobody");
 
     while (1)
       {
