@@ -1,5 +1,5 @@
 /*
- * $Id: icmplog.c,v 1.7 2001/02/19 10:06:17 ams Exp $
+ * Copyright 2008-2020 Klaus Alexander Seistrup <klaus@seistrup.dk>
  * Copyright 1998-2001 Abhijit Menon-Sen <ams@wiw.org>
  */
 
