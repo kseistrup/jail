@@ -189,7 +189,7 @@ main(int argc, char *argv[])
 	    }
       }
 
-    /* need root to bind raw socket */
+    /* we no longer need root to bind raw socket */
 
     if (geteuid() == 0)
       {
@@ -200,8 +200,6 @@ main(int argc, char *argv[])
       }
 
     configure(rc);
-
-    //background();
 
     if ((s = socket(AF_INET, SOCK_RAW, IPPROTO_TCP)) < 0)
       {
@@ -217,7 +215,6 @@ main(int argc, char *argv[])
 
     openlog("tcplog", 0, fac);
     syslog(LOG_INFO, "started");
-    //drop_privs ("nobody");
 
     while (1)
       {
