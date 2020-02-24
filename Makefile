@@ -4,7 +4,7 @@
 
 CC      = gcc
 CFLAGS  = -Wall -O2
-VERSION = 1.6
+VERSION = 1.7
 INSTALL = /usr/bin/install
 STRIP   = /usr/bin/strip
 DESTDIR = /usr
