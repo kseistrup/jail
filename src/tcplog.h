@@ -11,7 +11,7 @@
 #include <linux/tcp.h>
 #endif
 
-char *version = "tcplog " VERSION ", ams@wiw.org";
+char *version = "tcplog/" VERSION;
 char *cfgfile = TCPLOG_CONF;
 
 /* Default log level */

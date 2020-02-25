@@ -9,7 +9,7 @@
 
 #define MAX_ICMP 18
 
-char *version = "icmplog " VERSION ", ams@wiw.org";
+char *version = "icmplog/" VERSION;
 char *cfgfile = ICMPLOG_CONF;
 
 /* Default log level */
