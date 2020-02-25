@@ -10,7 +10,6 @@
 #else
 #include <linux/tcp.h>
 #endif
-#include <linux/tcp.h>
 
 char *version = "tcplog " VERSION ", ams@wiw.org";
 char *cfgfile = TCPLOG_CONF;
